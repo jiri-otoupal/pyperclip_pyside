@@ -3,6 +3,10 @@ Pyperclip
 
 A cross-platform clipboard module for Python, with copy & paste functions for plain text.
 By Al Sweigart al@inventwithpython.com
+and 
+
+Jiri Otoupal jiri.otoupal@uptim.ai
+
 BSD License
 
 Usage:
@@ -22,7 +26,7 @@ For example, in Debian:
     sudo apt-get install xsel
     sudo apt-get install wl-clipboard
 
-Otherwise on Linux, you will need the gtk or PyQt5/PyQt4 modules installed.
+Otherwise on Linux, you will need the gtk or PySide2/PyQt4 modules installed.
 
 gtk and PyQt4 modules are not available for Python 3,
 and this module does not work with PyGObject yet.
@@ -46,7 +50,7 @@ A malicious user could rename or add programs with these names, tricking
 Pyperclip into running them with whatever permissions the Python process has.
 
 """
-__version__ = '1.8.0'
+__version__ = '1.8.2'
 
 import contextlib
 import ctypes
@@ -179,7 +183,7 @@ def init_qt_clipboard():
         from qtpy.QtWidgets import QApplication
     except:
         try:
-            from PyQt5.QtWidgets import QApplication
+            from PySide2.QtWidgets import QApplication
         except:
             from PyQt4.QtGui import QApplication
 
@@ -583,7 +587,7 @@ def determine_clipboard():
         except ImportError:
             # If qtpy isn't installed, fall back on importing PyQt4.
             try:
-                import PyQt5  # check if PyQt5 is installed
+                import PySide2  # check if PyQt5 is installed
             except ImportError:
                 try:
                     import PyQt4  # check if PyQt4 is installed

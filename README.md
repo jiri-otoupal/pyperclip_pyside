@@ -11,7 +11,7 @@ BSD License
 Example Usage
 =============
 
-    >>> import pyperclip
+    >>> import pyperclip_pyside as pyperclip
     >>> pyperclip.copy('The text to be copied to the clipboard.')
     >>> pyperclip.paste()
     'The text to be copied to the clipboard.'
